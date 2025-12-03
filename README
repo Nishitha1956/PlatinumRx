@@ -1,0 +1,190 @@
+PlatinumRx Assignment — Data Analytics & Engineering
+📌 1. Objective
+
+This project demonstrates end-to-end data analysis capabilities including:
+
+Database Management (SQL): Schema creation & analytical queries for Hotel and Clinic systems.
+
+Spreadsheet Analytics: Lookup, date comparison, time grouping, and outlet-wise metrics.
+
+Python Programming: Time conversion and string manipulation. 
+PlatinumRX_Assignment/
+│
+├── SQL/
+│   ├── 01_Hotel_Schema_Setup.sql
+│   ├── 02_Hotel_Queries.sql
+│   ├── 03_Clinic_Schema_Setup.sql
+│   └── 04_Clinic_Queries.sql
+│
+├── Spreadsheets/
+│   ├── Ticket_Analysis.xlsx
+│   └── ticket_feedbacks_updated.xlsx
+│
+├── Python/
+│   ├── 01_Time_Converter.py
+│   └── 02_Remove_Duplicates.py
+│
+└── README.md
+🔧 3. Technical Requirements
+SQL
+
+MySQL / PostgreSQL / MariaDB / SQLite Workbench
+Knowledge of:
+
+CREATE TABLE, INSERT, joins, grouping, aggregations, window functions
+
+Spreadsheet
+
+MS Excel / Google Sheets
+Skills:
+
+VLOOKUP / XLOOKUP
+
+INT()
+
+HOUR()
+
+COUNTIF / COUNTIFS
+
+Pivot tables
+
+Python
+
+Python 3.x
+
+Basic loops, conditions, string functions
+
+🏨 4. SQL Section — Hotel System (Part A)
+❗ Schema Reference
+
+Tables:
+users, bookings, booking_commercials, items
+
+Queries Required:
+
+✔ Q1: For every user — last booked room
+✔ Q2: booking_id + billing amount for Nov 2021
+✔ Q3: Bill amount > 1000 in Oct 2021
+✔ Q4: Most & least ordered item per month
+✔ Q5: Second-highest bill per month
+
+💡 Guidance included for each query in your prompt.
+
+🏥 5. SQL Section — Clinic System (Part B)
+Schema Reference
+
+Tables:
+clinics, customer, clinic_sales, expenses
+
+Queries Required:
+
+✔ Month-wise revenue
+✔ Profit/Loss computation
+✔ Most profitable clinic per city
+✔ 2nd least profitable clinic per state
+
+📊 6. Spreadsheet Analysis (Part C)
+
+You are given two worksheets:
+
+ticket sheet
+
+| ticket_id | created_at | closed_at | outlet_id | cms_id |
+
+feedbacks sheet
+
+| cms_id | feedback_at | feedback_rating | ticket_created_at |
+
+✔ Step 1: Populate ticket_created_at
+Final formula used:
+=VLOOKUP(A2,CHOOSE({1,2},ticket!E:E,ticket!B:B),2,FALSE)
+
+
+This successfully pulls ticket creation datetime into the feedback sheet.
+
+✔ Step 2: Same-Day Ticket Closure
+
+Formula used:
+
+=IF(INT(B2)=INT(C2),1,0)
+
+
+✔ Result: same_day column correctly populated
+✔ Your screenshot verified — All values are correct
+
+✔ Step 3: Same-Hour of Same-Day
+
+Formula used:
+
+=IF(AND(INT(B2)=INT(C2),HOUR(B2)=HOUR(C2)),1,0)
+
+
+✔ Your same_hour column values are correct
+✔ Verified logically — ✔ no mismatches
+
+✔ Step 4: Outlet-wise Aggregation
+
+Example pivot result:
+
+outlet_id	same_day_count	same_hour_count
+wrqy-juv-978	4	1
+8woh-k3u-23b	3	0
+🐍 7. Python Tasks (Part D)
+1️⃣ Minutes → Human-Readable Format
+
+Example:
+
+130 → "2 hrs 10 minutes"
+110 → "1 hr 50 minutes"
+
+01_Time_Converter.py contains:
+
+hours = minutes // 60
+rem = minutes % 60
+print(f"{hours} hrs {rem} minutes")
+
+2️⃣ Remove duplicates from string
+
+Example:
+Input: "aabbccddeeff" → Output: "abcdef"
+
+02_Remove_Duplicates.py:
+
+result = ""
+for ch in input_string:
+    if ch not in result:
+        result += ch
+print(result)
+
+🧪 8. Testing & Validation
+
+✔ SQL scripts execute without errors
+✔ Excel formulas validated & working correctly
+✔ Python scripts tested with multiple inputs
+✔ Output files & datasets organized
+
+📤 9. Submission Format
+Provide the following:
+GitHub Link:  https://github.com/yourrepo
+Spreadsheet:  Ticket_Analysis.xlsx
+
+🧾 10. Final Checklist
+
+Before submission, confirm:
+
+✔ All SQL queries finalized
+✔ Excel formulas functional
+✔ Python code clean & commented
+✔ README clearly explains task
+✔ No broken links in submission
+
+💼 11. Professional Summary Value (for Resume)
+
+This assignment showcases:
+
+✔ Data analytics & problem solving
+✔ SQL database expertise
+✔ Excel time-series & lookup analysis
+✔ Python scripting & automation
+✔ Business logic thinking
+
